@@ -21,10 +21,6 @@ public class ArenaFighter {
         this.healPotions = healPotions;
     }
 
-    public ArenaFighter(String name, int health, int attackPower, double dodgeChance, int armor) {
-    }
-
-
     public String getName() { return name; }
     public int getHealth() { return health; }
     public int getMaxHealth() { return maxHealth; }
@@ -32,17 +28,26 @@ public class ArenaFighter {
     public int getBlockRating() { return blockRating; }
     public int getArmorValue() { return armorValue; }
     public int getAttackPower() { return attackPower; }
+    public int getHealPotions() { return healPotions; }
 
-    public void takeDamage(int amount) { this.health = Math.max(0, this.health - amount); }
+    public void takeDamage(int amount) {
+        // Ограничиваем здоровье, чтобы оно не падало ниже 0
+        this.health = Math.max(0, this.health - amount);
+    }
+
     public void heal(int amount) {
         if (healPotions > 0) {
+            // Ограничиваем здоровье, чтобы не лечить больше максимума
             this.health = Math.min(maxHealth, this.health + amount);
             this.healPotions--;
         }
     }
-    public boolean isAlive() { return health > 0; }
-    public void addDodgeBoost(double boost) { this.dodgeChance += boost; }
 
-    public int getArmor() {
+    public boolean isAlive() {
+        return health > 0;
+    }
+
+    public void addDodgeBoost(double boost) {
+        this.dodgeChance += boost;
     }
 }
