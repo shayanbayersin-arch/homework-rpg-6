@@ -1,4 +1,4 @@
-package com.narxoz.rpg;
+package com.narxoz.rpg.facade;
 
 import com.narxoz.rpg.arena.ArenaFighter;
 import com.narxoz.rpg.arena.ArenaOpponent;
