@@ -9,6 +9,11 @@ import com.narxoz.rpg.composite.EnemySquad;
 import com.narxoz.rpg.decorator.PowerBuff;
 import com.narxoz.rpg.singleton.GameSettings;
 import com.narxoz.rpg.tournament.TournamentEngine;
+import com.narxoz.rpg.arena.ArenaFighter;
+import com.narxoz.rpg.arena.ArenaOpponent;
+import com.narxoz.rpg.composite.EnemySquad;
+import com.narxoz.rpg.command.*; // Чтобы видел AttackCommand и т.д.
+import com.narxoz.rpg.tournament.TournamentEngine;
 
 public class ArenaFacade {
 

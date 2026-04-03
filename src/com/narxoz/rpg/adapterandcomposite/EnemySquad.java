@@ -1,4 +1,4 @@
-package com.narxoz.rpg.adapterandcomposite;
+package com.narxoz.rpg.composite;
 
 import com.narxoz.rpg.arena.ArenaOpponent;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ public class EnemySquad extends ArenaOpponent {
         super(name, 0, 0);
     }
 
+    // ВОТ ЭТОТ МЕТОД ИСПРАВИТ ОШИБКУ "addMember":
     public void addMember(ArenaOpponent opponent) {
         members.add(opponent);
     }
@@ -21,13 +22,7 @@ public class EnemySquad extends ArenaOpponent {
     }
 
     @Override
-    public int getAttackPower() {
-        return members.stream().filter(ArenaOpponent::isAlive).mapToInt(ArenaOpponent::getAttackPower).sum();
-    }
-
-    @Override
     public void takeDamage(int amount) {
-        // Урон распределяется по живым членам отряда
         for (ArenaOpponent m : members) {
             if (m.isAlive()) {
                 m.takeDamage(amount);
