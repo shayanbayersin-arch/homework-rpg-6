@@ -32,7 +32,7 @@ public class ArenaFacade {
         int heroDamage = fireSword.getFinalDamage(20);
         System.out.println("[System] Hero forged a Fire Sword! Damage: " + heroDamage);
 
-        ArenaFighter baseHero = new ArenaFighter("Erlan", 120, heroDamage, 0.2, 30, 5, 3);
+        ArenaFighter baseHero = new ArenaFighter("Erlan", 120, (double) heroDamage, 0.2, 30, 5, 3);
 
 
         ArenaFighter buffedHero = new PowerBuff(baseHero);

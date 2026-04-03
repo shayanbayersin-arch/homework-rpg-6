@@ -21,6 +21,9 @@ public class ArenaFighter {
         this.healPotions = healPotions;
     }
 
+    public ArenaFighter(String name, int health, int attackPower, double dodgeChance, int armor) {
+    }
+
 
     public String getName() { return name; }
     public int getHealth() { return health; }
@@ -39,4 +42,7 @@ public class ArenaFighter {
     }
     public boolean isAlive() { return health > 0; }
     public void addDodgeBoost(double boost) { this.dodgeChance += boost; }
+
+    public int getArmor() {
+    }
 }
