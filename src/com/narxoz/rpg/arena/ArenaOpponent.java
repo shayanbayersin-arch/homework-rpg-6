@@ -13,19 +13,10 @@ public class ArenaOpponent {
         this.attackPower = attackPower;
     }
 
+    public void takeDamage(int amount) { this.health = Math.max(0, this.health - amount); }
+    public void restoreHealth(int amount) { this.health = Math.min(maxHealth, this.health + amount); }
+    public boolean isAlive() { return health > 0; }
     public String getName() { return name; }
     public int getHealth() { return health; }
     public int getAttackPower() { return attackPower; }
-
-    public void takeDamage(int amount) {
-        health = Math.max(0, health - amount);
-    }
-
-    public void restoreHealth(int amount) {
-        health = Math.min(maxHealth, health + amount);
-    }
-
-    public boolean isAlive() {
-        return health > 0;
-    }
 }
