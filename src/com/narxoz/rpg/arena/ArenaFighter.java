@@ -1,25 +1,42 @@
 package com.narxoz.rpg.arena;
 
 public class ArenaFighter {
-    private String name;
+    private final String name;
     private int health;
-    private int attackPower;
+    private final int maxHealth;
     private double dodgeChance;
-    private int armor;
+    private final int blockRating;
+    private final int armorValue;
+    private final int attackPower;
+    private int healPotions;
 
-    public ArenaFighter(String name, int health, int attackPower, double dodge, int armor) {
-        this.name = name; this.health = health; this.attackPower = attackPower;
-        this.dodgeChance = dodge; this.armor = armor;
+    public ArenaFighter(String name, int health, double dodgeChance, int blockRating, int armorValue, int attackPower, int healPotions) {
+        this.name = name;
+        this.health = health;
+        this.maxHealth = health;
+        this.dodgeChance = dodgeChance;
+        this.blockRating = blockRating;
+        this.armorValue = armorValue;
+        this.attackPower = attackPower;
+        this.healPotions = healPotions;
     }
 
-    public ArenaFighter(String erlan, int health, int heroDamage, double dodge, int armor, int i, int i1) {
-    }
 
-    public void takeDamage(int dmg) { this.health = Math.max(0, this.health - dmg); }
-    public boolean isAlive() { return health > 0; }
     public String getName() { return name; }
     public int getHealth() { return health; }
-    public int getAttackPower() { return attackPower; }
+    public int getMaxHealth() { return maxHealth; }
     public double getDodgeChance() { return dodgeChance; }
-    public int getArmor() { return armor; }
+    public int getBlockRating() { return blockRating; }
+    public int getArmorValue() { return armorValue; }
+    public int getAttackPower() { return attackPower; }
+
+    public void takeDamage(int amount) { this.health = Math.max(0, this.health - amount); }
+    public void heal(int amount) {
+        if (healPotions > 0) {
+            this.health = Math.min(maxHealth, this.health + amount);
+            this.healPotions--;
+        }
+    }
+    public boolean isAlive() { return health > 0; }
+    public void addDodgeBoost(double boost) { this.dodgeChance += boost; }
 }
