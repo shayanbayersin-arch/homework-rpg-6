@@ -9,11 +9,6 @@ import com.narxoz.rpg.composite.EnemySquad;
 import com.narxoz.rpg.decorator.PowerBuff;
 import com.narxoz.rpg.singleton.GameSettings;
 import com.narxoz.rpg.tournament.TournamentEngine;
-import com.narxoz.rpg.arena.ArenaFighter;
-import com.narxoz.rpg.arena.ArenaOpponent;
-import com.narxoz.rpg.composite.EnemySquad;
-import com.narxoz.rpg.command.*; // Чтобы видел AttackCommand и т.д.
-import com.narxoz.rpg.tournament.TournamentEngine;
 
 public class ArenaFacade {
 
@@ -32,7 +27,8 @@ public class ArenaFacade {
         int heroDamage = fireSword.getFinalDamage(20);
         System.out.println("[System] Hero forged a Fire Sword! Damage: " + heroDamage);
 
-        ArenaFighter baseHero = new ArenaFighter("Erlan", 120, (double) heroDamage, 0.2, 30, 5, 3);
+        // Порядок: Имя(String), HP(int), Уворот(double), Блок(int), Броня(int), Урон(int), Зелья(int)
+        ArenaFighter baseHero = new ArenaFighter("Erlan", 120, 0.2, 30, 5, heroDamage, 3);
 
 
         ArenaFighter buffedHero = new PowerBuff(baseHero);

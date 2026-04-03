@@ -21,6 +21,6 @@ public class DefendCommand implements ActionCommand {
 
     @Override
     public String getDescription() {
-        return "TODO";
+        return "Готовится к защите (уклонение увеличено).";
     }
 }

@@ -11,7 +11,7 @@ public class EnemySquad extends ArenaOpponent {
         super(name, 0, 0);
     }
 
-    // ВОТ ЭТОТ МЕТОД ИСПРАВИТ ОШИБКУ "addMember":
+
     public void addMember(ArenaOpponent opponent) {
         members.add(opponent);
     }
@@ -19,6 +19,13 @@ public class EnemySquad extends ArenaOpponent {
     @Override
     public int getHealth() {
         return members.stream().mapToInt(ArenaOpponent::getHealth).sum();
+    }
+    @Override
+    public int getAttackPower() {
+        return members.stream()
+                .filter(ArenaOpponent::isAlive)
+                .mapToInt(ArenaOpponent::getAttackPower)
+                .sum();
     }
 
     @Override
